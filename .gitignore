@@ -50,3 +50,12 @@ application*.yml
 # Spring metadata
 **/.metadata/
 **/.springBeans
+*.properties
+*.yaml
+*.yml
+*.xml
+*.json
+*.md
+*.txt
+*.sh
+*.sql
