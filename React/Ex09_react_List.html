@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            https://www.w3schools.com/react/react_lists.asp
+
+            목록 렌더링
+
+            1. map  , filter  ... 새로운 배열 (조작 ....)
+       
+            function Car(props) {
+            return <li>I am a { props.brand }</li>;
+            }
+
+            function Garage() {
+            const cars = ['Ford', 'BMW', 'Audi'];
+            return (
+                <>
+                <h1>Who lives in my garage?</h1>
+                <ul>
+                    {cars.map((car) => <Car brand={car} />)}
+                </ul>
+                </>
+            );
+            }
+
+            2. key  (동일한 컴포넌트 목록은 구별값이 필요 : key)
+
+               키는 React가 요소를 추적할 수 있도록 합니다. 
+               이렇게 하면 항목이 업데이트되거나 제거되면 전체 목록 대신 해당 항목만 다시 렌더링됩니다.
+               키는 각 형제마다 고유해야 합니다. 하지만 전역적으로 복제할 수 있습니다.
+                
+               point : 일반적으로 키는 각 항목에 할당된 고유 ID여야 합니다. 마지막 수단으로 배열 인덱스를 키로 사용할 수 있습니다.
+               function Car(props) {
+                    return <li>I am a { props.brand }</li>;
+                    }
+
+                    function Garage() {
+                    const cars = [
+                        {id: 1, brand: 'Ford'},
+                        {id: 2, brand: 'BMW'},
+                        {id: 3, brand: 'Audi'}
+                    ];
+                    return (
+                        <>
+                        <h1>Who lives in my garage?</h1>
+                        <ul>
+                            {cars.map((car) => <Car key={car.id} brand={car.brand} />)}
+                        </ul>
+                        </>
+                    );
+                    }
+
+          
+
+
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

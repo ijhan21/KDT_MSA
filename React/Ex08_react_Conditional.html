@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        https://www.w3schools.com/react/react_conditional_rendering.asp
+
+        1) iF
+                function Goal(props) {
+                    const isGoal = props.isGoal;
+                    if (isGoal) {
+                        return <MadeGoal/>;
+                    }
+                    return <MissedGoal/>;
+                 }
+
+                const root = ReactDOM.createRoot(document.getElementById('root'));
+                root.render(<Goal isGoal={false} />);
+
+        2) && 논리 연산자
+        function Garage(props) {
+            const cars = props.cars;
+            return (
+                <>
+                <h1>Garage</h1>
+                {cars.length > 0 &&
+                    <h2>
+                    You have {cars.length} cars in your garage.
+                    </h2>
+                }
+                </>
+            );
+            }
+
+            const cars = ['Ford', 'BMW', 'Audi'];
+            
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(<Garage cars={cars} />);
+
+        3) 삼항 연산자
+                function Goal(props) {
+                    const isGoal = props.isGoal;
+                    return (
+                        <>
+                        { isGoal ? <MadeGoal/> : <MissedGoal/> }
+                        </>
+                    );
+                }
+
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(<Goal isGoal={false} />);
+
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

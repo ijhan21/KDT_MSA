@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        https://www.w3schools.com/react/react_memo.asp
+
+        Using memo will cause React to skip rendering a component if its props have not changed.
+        This can improve performance.
+
+        React.memo
+        https://g4daclom.tistory.com/203
+
+        1. 리액트 컴포넌트의 렌더링 조건 (함수 재호출)
+           컴포넌트는 자신의 state가 변경되거나 부모 컴포넌트가 렌더링 되었을 때 함께 렌더링이 됩니다.
+
+        2. React.memo는 리액트에서 제공하는 고차 컴포넌트중 하나입니다. 
+           고차 컴포넌트(HOC)는 어떤 컴포넌트를 인자로 받아서 새로운 컴포넌트를 반환해주는 컴포넌트입니다.
+
+        3. POINT
+        렌더링이 되어야 할 상황에 놓일 때마다 Prop check를 통해 props에 변화가 있다면 
+        렌더링을 하고 변화가 없다면 기존의 렌더링 된 내용을 재사용하게 됩니다.
+
+        미리 memo 해 놓았다고 새로운 값하고 비교 하는 것 ...
+
+
+        React.memo 를 사용하기 좋은 상황
+        1. 컴포넌트가 같은 props로 자주 렌더링이 될 때
+        2. 컴포넌트가 렌더링이 될 때마다 복잡한 로직을 처리해야 할 때
+         memo = memoization으로 기존의 렌더링된 데이터를 재사용하기 위해 메모리 어딘가에 
+                저장해두는 것이므로 무분별한 사용은 오히려 성능 저하를 불러올 수 있습니다!
+
+
+            import { memo } from "react";
+
+            const Todos = ({ todos }) => {
+            console.log("child render");
+            return (
+                <>
+                <h2>My Todos</h2>
+                {todos.map((todo, index) => {
+                    return <p key={index}>{todo}</p>;
+                })}
+                </>
+            );
+            };
+
+            export default memo(Todos);    **********************    
+            
+            
+            실습: 
+            🆚 Child Component 가 랜더링 되었습니다
+            🆚 Child Component 가 랜더링 되었습니다
+
+            이유: index.js ...
+              <React.StrictMode>
+                 <App />
+              </React.StrictMode>
+
+             React.StrictMode 생략 작업  
+            🆚 Child Component 가 랜더링 되었습니다
+        */
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
