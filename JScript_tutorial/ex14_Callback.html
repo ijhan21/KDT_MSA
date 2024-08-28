@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>    
+</body>
+<script>
+    function myDisplayer(some){
+        document.getElementById("demo").innerHTML=`myDisplayer<br>${some}`;        
+    }
+
+    function myCalculator(num1, num2, fCallback){ //fCallback 함수의 주소
+        let sum = num1 + num2;
+        fCallback(sum); // 호출
+    }
+
+    myCalculator(5, 5, myDisplayer);
+
+    const myNumbers = [4, 1, -20, -7, 5, 9, -6];
+    const posNumbers=removeNeg(myNumbers,(x)=> x >=0); // function data(x) {return x>=0}
+    function removeNeg(numbers, callback){ //callback 함수 전달
+        const myArray=[];
+        for(const x of numbers){
+            if (callback(x)){
+                myArray.push(x)
+            }
+        }
+        return myArray;
+    }
+    console.log(posNumbers);
+</script>
+</html>

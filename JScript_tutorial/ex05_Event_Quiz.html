@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	 <style>
+        #add-btn{
+            padding: 5px 10px;
+            border: 0;
+            background: #f80; 
+            color: white;
+            border-radius: 5px;
+        }
+        ul{ 
+            padding: 0; 
+            list-style-position: inside;
+        }
+        li{
+            border-bottom: 1px solid #999;
+            padding: 5px 0;
+        }
+        .active{ background:gold; } /* step3: 목록 클릭 스타일 */
+    </style>
+</head>
+<body>
+	<h1 id='title'>할일 목록</h1>
+    <button id="add-btn">목록 추가</button>
+    <ul id='list'>
+        <li>제목 1</li>
+        <li>제목 2</li>
+        <li>제목 3</li>
+        <li>제목 4</li>
+    </ul>
+</body>
+<script>
+    const title = document.getElementById("title");
+    const list = document.getElementById("list");
+    const li = document.getElementsByTagName("li");
+    const addbtn = document.getElementById("add-btn");
+    
+    function activeItem(event){ // 함수 호출시 event 객체 파라미터 받겠다
+        console.log(event.target);
+        console.log(event.currentTarget);
+        //target : 이벤트가 발생한 바로 그 요소를 직접 가리킴
+        //currentTarget : 이벤트 리스터를 가지고 있는 요소
+        if(event.target.nodeName == "LI"){ // 대문자로 가져온다
+            title.innerHTML = event.target.innerText;
+        }
+
+        // 추가. 클릭한 것을 잘 알아보게 하고 싶어
+        /*
+        event.target.setAttribute('class', 'active'); // 이렇게 하면 클릭한 것들은 다 바껴
+        */
+       // 현재 선택한 요소만 적용
+       // 현재 요소 말고 다른 요소는 class 제거
+       for(let i=0; i<event.target.parentNode.children.length; i++){ // event.target.parentNode.children -> Array
+            event.target.parentNode.children[i].removeAttribute('class');
+       }
+       event.target.setAttribute('class', 'active');
+    }
+
+    list.addEventListener("click", activeItem);
+    addbtn.addEventListener("click", (e)=>{
+        let txt = prompt("제목입력");
+        if(txt !=null){
+            list.innerHTML += '<li>'+txt+'</li>';
+        }
+    })
+    // vue, react (데이터 : localstorage)
+</script>
+</html>

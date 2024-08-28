@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //비동기 함수 처리
+        function delay(sec, callback){
+            setTimeout(()=>{
+                callback(new Date());
+            }, sec*1000);
+        }
+        function call(result){
+            console.log(result);
+        }
+
+        console.log("delay start", new Date());
+        delay(1, call);
+        console.log("delay end");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        vue, react 선수학습: Array 배열, 객체(JSON : javascript를 객체로 표기하는 방법)
+
+        let Member = {}
+
+    */
+   let Member = {};
+   console.log(Member);
+
+   Member.name = "hong"; // 미리 정의 되어 있지 않은데 알아서 만든다
+   console.log(Member.name);
+
+   Member.age = 100;
+   // 함수 추가
+   Member.print=()=>{
+     document.write("<br>"+this.name+" / "+ this.age +"<br>");
+   }
+   Member.print();
+
+   //JSON 객체 만들기
+   const Grade = {
+    "list":{"hong":10, "kim":20,"park":30},
+    "show":function(){
+        for (let key in this.list){
+            document.write(key+" : "+this.list[key]+"<br>");
+        }
+    }
+   }
+   Grade.show();
+
+   let arr = ['A', 'B', 'C'];
+   for(let index in arr){
+    console.log(arr[index]);
+   }
+
+   // ES6
+   for(let value of arr){
+    console.log(value);
+   }
+
+   /*
+    let Data = {
+        "list":{},
+        "list2":[{},{},{}],
+    }
+
+    1. 배열 : [] > const arr = [] > push() > pop() > LIFO
+    2. 객체(JSON) : {} > const obj = {} > 가지고 있는 데이터 가공(외부 API) > obj.속성명 > obj[key(속성명을 문자열로)]
+   */
+
+   let students = [];
+   students.push({이름:"홍길동", 국어:80, 영어:90});
+   //    students.push({"이름":"홍길동", "국어":80, "영어":90}); 데이터 파싱등을 할때 제대로 안될 수 있다.
+   students.push({이름:"아무개", 국어:100, 영어:80});
+   students.push({이름:"이순신", 국어:90, 영어:100});
+
+   for(let index in students){ // 0 객체, 1 객체
+        console.log(students[index]);
+        console.log(students[index].이름);
+        students[index].getSum = function(){return this.국어 + this.영어}
+        students[index].getAvg = function(){return this.getSum()/2}
+   }
+
+   for  (let index in students){
+    console.log(students[index].이름);
+    console.log(students[index].getSum());
+    console.log(students[index].getAvg());
+   }
+
+   //쿼즈
+  let mycars;
+    mycars ={"name":"john" , "age":30 , "cars":[
+			                                         {"name":"Ford","model":["Mustang","Focus"]},
+			                                         {"name":"BMW","model":["520","x5","x6"]},
+			                                         {"name":"Fiat","model":["500","panda"]}
+		                                           ]
+		
+		     };
+  // 차량이름 ,   차량모델  만 출력하고 싶어요
+  // Ford  -  Mustang   Focus
+  // BMW   -  520   x5    x6 
+  // ....        
+  for(let car of mycars.cars){
+    console.log(car.name + " - "+car.model[0] + " " + car.model[1]);
+  }
+</script>
+</html>

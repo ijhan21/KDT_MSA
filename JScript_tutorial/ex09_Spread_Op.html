@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Spread Operator
+            >> 펼침 연산자
+            특정 객체 or 배열값을 다른 객체 or 배열로 복제하거나 옮길때 ...
+
+            연산자 모양 : ...            
+        */
+        const obj = {
+            a:10,
+            b:20
+        };
+
+        // let newObj = {};
+        let newObj = {...obj}; //obj를 ...으로 복제해서 넣어준다
+        console.log(newObj);
+
+        const arr = [1,2,3];
+        let newArr = [...arr]
+        console.log(newArr);
+
+        //일반적인 객체 복제 방식
+        const obj2 = {
+            a:10,
+            b:20
+        };
+
+        const newObj2 = {
+            a:obj.a, 
+            b:obj.b
+        }
+        console.log(newObj2);
+
+        // 객체
+        const obj3 = {name:"길동"};
+        const obj4 = {age:25};
+
+        const combinedObj = {...obj3, ...obj4};
+
+        //point insert, update ... 처리 (vue, react)
+        const person = {name:'김유신', age:50}
+        const updatedPerson = {...person, city:'Seoul'};
+        console.log(updatedPerson); // {name:'김유신', age:50, city:'Seoul'}
+
+        // Quiz
+        let user = {
+            name : "John",
+            age:21,
+            city:"Busan"            
+        }
+        // user 객체의 age 속성 값을 20 변경한 객체를 하나 생성
+        // 단 조건은 spread operator 연산자
+        const user1 = {...user, age:20};        
+        console.log(user2);
+
+        // 난이도 중상
+        let user2 = {
+            name:'smith',
+            address:{
+                city:"seoul",
+                zip:"02"
+            }
+        }
+
+        // user2 객체의 address city 속성을 kangwon으로 변경한 user3 객체를 생성
+        // 단 조건은 spread operator 연산자
+        let user3 
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

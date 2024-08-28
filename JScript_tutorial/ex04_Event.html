@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<a id="myAnchor" href="https://w3schools.com/">Go to W3Schools.com</a>
+<p>The preventDefault() method will prevent the link above from following the URL.</p>
+<button class="btn">Button</button>
+
+</body>
+
+<script>
+    document.getElementById("myAnchor").addEventListener("click", function(event){
+    //   event.preventDefault()
+    });
+    const btn = document.querySelector('.btn');
+    btn.addEventListener('click', function(e){ // event 객체를 e 라는 변수로 받는다
+        console.log(this); // this는 이벤트를 가지고 있는 주체를 가리킨다 <button class="btn">Button</button>
+        console.log(e.currentTarget); // <button class="btn">Button</button> 위 this랑 같은 값을 나타낸다. this가 화살표 함수일때 역할이 바뀌기 때문에 e 객체를 쓰는게 더 맞다
+        console.log(this === e.currentTarget);
+    })
+</script>
+</html>

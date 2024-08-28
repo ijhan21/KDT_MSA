@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    /*
+        Template Literal
+        자바스크립트에서 문자열을 입력하는 방식
+        ES6 백틱(back-tick)
+     */ 
+
+    const str = "hello world";
+    const str2 = `hello world`; // 백틱 문자열 안에 script 포함
+
+    /*
+    const lang = "javascript";
+    const expression = "i love "+lang +"!!!";
+    console.log(expression); "i love javascript!!!"
+
+    백틱
+    JAVA : System.out.printf("{0} - {2}", hello, world ) 원리와 같음
+    */
+
+    const lang = "javascript";
+    const expression = `i love ${lang}!!!`;
+    console.log(expression);
+
+    // Quiz
+    const user4 = {
+        name : "순신",
+        age:30
+    }
+
+    // 문제 : 백틱을 사용해서 '사랑하는 순신이는 이제 30살' 이라고 출력하세요
+    const msg = `사랑하는 ${user4.name}이는 이제 ${user4.age}살`;
+    console.log(msg);
+</script>
+<body>
+    
+</body>
+</html>

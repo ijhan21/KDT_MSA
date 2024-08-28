@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Destructuring
+            ES6 구조분해
+
+            javascript 객체 배열 구조를 다룰때
+        */
+
+        const arr = [1,2,3,4];
+        const obj = {
+            a:10,
+            b:20,
+            c:30
+        }
+        // 구조라는 단어가 객체, 배열을 표현한 것. 구조화 되었다
+
+        const {a, b, c} = obj;
+        console.log(a);
+        console.log(b);
+        console.log(c);
+
+        const smith = {
+            lang:"javascript",
+            position:'front-end',
+            area:'kangnam',
+            hobby:'baseball',
+            age:90
+        }
+
+        // const lang = smith.lang;
+
+        // 구조분해 할당
+        const {lang, position, area, h, age} = smith; // 받는 변수 이름이 똑같아야 한다. 아니면 undifined. 못받음
+        console.log(lang);
+        console.log(position);
+        console.log(area);
+        console.log(h);
+        console.log(age);
+
+        // 배열
+        const numbers = [11, 22, 33];
+        const [first, second, third] = numbers; // 배열은 변수명 안맞춰도 된다
+        console.log(first, second, third);
+
+        const numbers2 = [1,2];
+        const [first2, second2, third2=1000] = numbers2;
+        console.log(first2, second2, third2);
+
+        const numbers3 = [1,2,3,4,5];
+        const [,,third3, fourth3] = numbers3;
+        console.log(third3, fourth3); //3, 4
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

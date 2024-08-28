@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            1. 자바 스크립트의 일급객체
+            1.1 변수에 할당
+            const add = function(){}
+            1.2 함수가 객체에 저장
+            - const cal = {} : 자바의 객체 만드는 문법, const cals = [] 배열
+            - const cal = {add} 이렇게도 된다
+            1.3 함수가 매개변수로 전달
+            function hello(){}
+            function greeting(message, name){
+            
+            }
+            greeting(hello, "script")
+        */
+       // 화살표 함수
+       // Arrow Funtions
+       // function call(){} // 일반적인 함수
+       let foo = function(){ //익명함수
+            console.log("foo함수 호출");
+       }
+       foo();
+
+       //ES6(2015) 함수의 줄임 표현(화살표 함수)
+       let bar = () => console.log("bar 함수 호출")
+       bar();
+
+       //매개변수가 1개 return 함수
+       // let foo2 = function(x) {return x;}
+       // let foo2 = (x) => x
+       let foo2 = x => x
+       console.log(foo2("good"))
+
+       let hello;
+       hello = (val) => "hello"+val;
+       console.log(hello("check"));
+       const value = hello("world");
+
+    </script>
+</head>
+<body>
+    hello world
+    <p id="demo"></p>
+    <script>
+       document.getElementById("demo").innerText = value;
+    //    매개변수가 2개 이상인 경우
+    // funtion call(x, y) or function call(i, j, k, y)
+        // let foo3 = (a, b) => {return a+b};
+        let foo3 = (a, b) => a+b;
+        let value2 = foo3(10, 20);
+        console.log(value2);
+        //  실행 블럭을 생략하는 기준(논리가 필요하다면... 지역변수, if, case)
+        let foo4 = (a, b) =>{
+            let c = 100;
+            return a+b+c;
+        }
+
+        const value3 = foo4(111, 222)
+        console.log(value3);
+
+        // 응용
+        // javascript 객체 , 배열
+        /*
+        배열 (Array)
+        JAVA : 정적(Array) > 배열의 크기 고정
+
+        int[] arr = new int[3];
+        int[] arr = new int[]{1, 2, 3};
+        int[] arr = {11, 22, 33}; key point ( 생략하면 컴파일러가 알아서 new를 한다)
+
+        JAVA : 동적 >> Collection (클래스)
+        >> List > Vector, ArrayList, Stack(Last in First out, push/pop 메서드 사용)
+        >> Set > TreeSet
+        >> Map >> HashMap
+
+        List<String> list = new ArrayList<>();
+        list.add("A"); -> JAVA 는 정적 배열과 동적 배열이 나누어져 있다.
+
+        javascript : 무조건 동적 배열 ( java의 collection과 동일하다 : stack )
+        let arr = [] // 좋은 냄새가 나는 코드, Best Code
+        arr.push("A");
+        arr.push("B");
+
+        // 나쁜 냄새 Bad Code
+        let arr = new Array(3); 값인지 알맹인지 헷갈린다.
+        */
+       const arr = [10, 20, 33];
+       for (let i =0;i<arr.length; i++){
+        document.write(arr[i]+"<br>");
+       }
+       // good
+       let arr2=[];
+       arr2.push(111110);
+       arr2.push(222220);
+
+       const v = arr2.pop();
+       console.log(v);
+    </script>
+</body>
+</html>
