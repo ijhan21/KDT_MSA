@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="module">
+        import {createApp} from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+        const root={
+            template:`
+            <h3 v-show="condition" >v-show</h3>
+            <h3 v-if="condition">v-if</h3>
+            `,
+            setup(){
+                return {
+                    condition:false //True 또는 false 값을 가지는 자원을 통해 v-if or v-show를 제어한다
+                }
+            }
+        }
+
+        const app=createApp(root);
+        app.mount("#app");
+    </script>
+</body>
+</html>

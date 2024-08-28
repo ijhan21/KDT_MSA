@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="module">
+        import {createApp} from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+        const root={
+            template:`
+                <h3> 일반 데이터 </h3>
+                <h3 v-if="num == 100">A</h3>
+                <h3 v-else-if="num > 90">B</h3>
+                <h3 v-else-if="num > 80">C</h3>
+                <h3 v-else-if="num > 70">D</h3>
+                <h3 v-else>F</h3>
+            `,
+            setup(){
+                return {
+                    num: 91
+                }
+            }
+        }
+
+        const app=createApp(root);
+        app.mount("#app");
+    </script>
+</body>
+</html>

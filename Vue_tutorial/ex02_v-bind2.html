@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://unpkg.com/vue@3/dist/vue.global.js">
+    </script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+// 속성에 이름만 있고 값이 없는 경우 -> true, false
+    const root = {
+        template:`<input :autofocus="isAutofocus" :disabled="isDisabled" :readonly="isReadonly" />`,
+        setup(){
+            return {
+                isAutoFocus:false,
+                isDisabled:true,
+                isReadonly:true,
+            }
+        }
+    }
+
+    const app = Vue.createApp(root);
+    app.mount("#app");
+</script>
+</html>

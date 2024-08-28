@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://unpkg.com/vue@3/dist/vue.global.js">
+    </script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const root = {
+        template:`<h1 v-for="(v, k) of obj" :class="String(v)">{{k}}</h1>`,
+        setup(){
+            const obj={
+                a:1, b:2, c:3
+            }
+            return {
+                obj
+            }
+        }
+    }
+
+    const app = Vue.createApp(root);
+    app.mount("#app");
+</script>
+</html>

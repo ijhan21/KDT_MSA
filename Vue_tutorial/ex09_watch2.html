@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    
+    
+    <div id="app"></div>
+    
+    <script type="module">
+        //prevent 속성은 폼 전송시 새로고침 방지
+        import {createApp, ref, watch, watchEffect} from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+        const root={
+            template:`
+                <input type="text" v-model.number="x">
+                <input type="text" v-model.number="y">
+                <p>x+y={{x+y}}</p>
+                    `,  
+            setup(){
+                const x=ref(0);
+                const y=ref(0);
+
+                // watch([x,y], (newVal, oldVal)=>{
+                //     console.log("두 변수의 합 : ", x.value+y.value);
+                //     console.log(`x:${oldVal[0]} y:${oldVal[1]}`);
+                //     console.log(`x:${newVal[0]} y:${newVal[1]}`);
+                // })
+
+                watchEffect(()=>{
+                    console.log("두 변수의 합 : ", x.value+y.value);
+                })
+
+                return {
+                    x,
+                    y
+                }
+            }
+        }
+        const app=createApp(root);
+        app.mount("#app");
+    </script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

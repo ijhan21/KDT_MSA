@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- v-if 는 렌더링 자체가 안된다 -->
+</head>
+<body>
+    <div id="app"></div>
+    <script type="module">
+        import {createApp} from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+        const root={
+            template:`
+            <nav>
+                <template v-for="item of menu" :key="item">
+                <a v-if="item.length > 12" :key="item" :href="'https://'+item">{{item}}</a>
+                <br>
+                </template>
+            </nav>
+            `,
+            setup(){
+                return {
+                    menu : ["www.naver.com", "www.daum.net"]
+                }
+            }
+        }
+
+        const app=createApp(root);
+        app.mount("#app");
+    </script>
+</body>
+</html>

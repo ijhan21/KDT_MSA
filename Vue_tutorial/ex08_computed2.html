@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    
+    
+    <div id="app"></div>
+    
+    <script type="module">
+        //prevent 속성은 폼 전송시 새로고침 방지
+        import {createApp, ref, computed} from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+        const root={
+            template:`
+                <div class="container">
+                    <p>price:<input type="text" v-model="price"></p>
+                    <p>formatedPrice:{{formatedPrice}}</p>
+                </div>
+                    `,  
+            setup(){
+                const price=ref(0);
+
+                const formatedPrice=computed(()=>{
+                    return "$"+parseFloat(price.value).toFixed(2);
+                })
+                return {
+                    price,
+                    formatedPrice
+                }
+            }
+        }
+        const app=createApp(root);
+        app.mount("#app");
+    </script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

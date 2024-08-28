@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://unpkg.com/vue@3/dist/vue.global.js">
+    </script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const root = {
+        template:`<h1 :style="{backgroundColor:'yellow', fontSize:size.value+'px'}">방가방가</h1>`,
+        setup(){
+            return {
+                size:Vue.reactive({
+                    value:30
+                })
+            }
+        }
+    }
+
+    const app = Vue.createApp(root);
+    app.mount("#app");
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app"></div>
+    <script type="module">
+        import {createApp} from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+        const root={
+            template:`
+                        <button v-on:click.left="console.log('left')">Click</button>
+                        <button @click.right="console.log('right')">Click</button>
+                        <button @click.middle="console.log('middle')">Click</button>        
+                    `,
+            setup(){
+                const click=()=>{alert("Hello World!");}
+                const call=(event)=>{console.log(event);}
+                return {
+                    onclick() {console.log("Hello World!");},
+                    click,
+                    call
+                }
+            }
+        }
+
+        const app=createApp(root);
+        app.mount("#app");
+    </script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
