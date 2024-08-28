@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	EmpMapper.java 하고  EmpMapper.xml 연결	자동화
+	
+	1. package com.example.demo.mapper.EmpMapper 를   EmpMapper.xml 동일하게 설정
+	namespace="com.example.demo.mapper.EmpMapper" 
+	
+	create table emp(
+		emp_id int auto_increment primary key,
+	    name varchar(50) not null,
+	    position varchar(50) not null,
+	    salary decimal(10,2) not null
+	);
+	
+	mybatis :why : 객체매핑 ...
+	2. 조건 : 태그 id값이 ... 인터페이스의 함수명과 동일 ...
+	
+	List<Emp> findAll();  // [Emp][Emp][Emp][Emp] ...
+	Emp findById(int empId);
+	void insert(Emp emp);
+	void update(Emp emp);
+	void delete(int empId);
+	
+	3. resultMap="com.example.demo.model.Emp"
+	내부적으로 Emp객체 생성  select 결과 while 
+	new Emp() ... setter 주입
+	그 객체를   list.add(Emp) .. 그 결과를 반환 
+	
+	자동화 몇가지 약속
+	4. DB Table 컬럴명과 타입이    model.Emp 클래의  member field 이름과 타입 동일
+	    emp_id int auto_increment primary key,
+	    name varchar(50) not null,
+	    position varchar(50) not null,
+	    salary decimal(10,2) not null
+	    
+	    private int empId;
+	    private String name;
+	    private String position;
+	    private double salay; // float , dobule 실수형
+	    
+	    이름이 같아야 mybatis 자동 매핑 ....
+	    약속 ....깨어진 약속 : emp_id >> empId 때문에 자동화
+	    
+	    편법: select emp_id as empId
+	    정식: resultMap > 매핑의 코드 > 약속을 안지켜서 .... 
+	    
+	    <select id="findById" resultMap="EmpResultMap" parameterType="Map">
+	    Map 타입의 객체를 Parameter 로 여러개의  parameter  사용가능 
+	    
+	    mybatis parameter 사용시
+	    
+	    #{name}  타입을 인정  String="kim"  >>  'Kim'
+	    ${name}  값을 사용
+	    
+	    https://velog.io/@ajongs/Mybatis-%EC%99%80-%EC%B0%A8%EC%9D%B4   
+	    
+	    
+	    
+	    mybatis.type-aliases-package=com.example.demo.model
+	    <insert id="insert" parameterType="Emp"  >
+-->    
+    
+<mapper namespace="com.example.demo.mapper.EmpMapper">
+    
+    <resultMap id="EmpResultMap" type="com.example.demo.model.Emp"> 
+		<id property="empId"  column="emp_id"  />
+		<result property="name" column="name" />
+		<result property="position" column="position" />
+		<result property="salary" column="salary" />
+	</resultMap>
+    
+    <select id="findAll" resultMap="EmpResultMap">
+		select emp_id, name,position,salary from emp
+	</select>
+
+ 	<select id="findById" resultMap="EmpResultMap">
+		select emp_id, name,position,salary from emp where emp_id= #{empId}
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="empId" >
+		insert into emp(name, position , salary)
+		values(#{name} , #{position} , #{salary})
+	</insert>
+
+	<update id="update">
+		update emp
+		set name=#{name},
+		    position=#{position},
+		    salary=#{salary}
+		where emp_id = #{empId}    
+	</update>
+
+	<delete id="delete">
+		delete from emp where emp_id=#{empId} 
+	</delete>
+</mapper>    
+
+
+
+
