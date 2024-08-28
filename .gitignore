@@ -39,3 +39,14 @@ dist/
 
 # Temporary files
 *.tmp
+
+# Spring Boot specific files
+*.jar
+*.war
+*.ear
+
+# Spring Boot application properties
+application*.yml
+# Spring metadata
+**/.metadata/
+**/.springBeans
